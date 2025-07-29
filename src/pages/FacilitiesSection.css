@@ -1,0 +1,157 @@
+/* --- General Section Styling --- */
+.facilities-section-container {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    padding: 4rem 1.5rem;
+    color: #333;
+    margin: 0 auto;
+}
+
+/* --- Content Blocks (Top and Bottom) --- */
+.facility-content-block {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.facility-content-block:last-child {
+    margin-bottom: 0;
+}
+
+.facility-text-content {
+    flex: 1;
+}
+
+.facility-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #00224d;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.facility-description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.facility-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid #007bff;
+    border-radius: 8px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.facility-button:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.facility-button .arrow {
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
+}
+
+/* --- Image Layouts --- */
+.facility-images-top {
+    display: flex;
+    gap: 1.5rem;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.facility-image-large {
+    width: 60%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+.facility-image-small {
+    width: 35%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+.facility-images-bottom {
+    display: flex;
+    gap: 1.5rem;
+    flex: 1;
+    justify-content: flex-start;
+}
+
+.facility-image-medium {
+    width: 48%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+    .facility-content-block {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .facility-text-content {
+        order: 1;
+    }
+
+    .facility-images-top,
+    .facility-images-bottom {
+        flex-direction: column;
+        align-items: center;
+        order: 2;
+        gap: 1rem;
+    }
+
+    .facility-image-large,
+    .facility-image-small,
+    .facility-image-medium {
+        width: 80%;
+        max-width: 400px;
+    }
+
+    .facility-block-bottom {
+        flex-direction: column-reverse;
+    }
+}
+
+@media (max-width: 768px) {
+    .facilities-section-container {
+        padding: 3rem 1rem;
+    }
+
+    .facility-title {
+        font-size: 2rem;
+    }
+
+    .facility-description {
+        font-size: 0.9rem;
+    }
+
+    .facility-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .facility-image-large,
+    .facility-image-small,
+    .facility-image-medium {
+        width: 95%;
+    }
+}

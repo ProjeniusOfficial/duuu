@@ -1,0 +1,483 @@
+/* Styling for the new wrapper div that replaces global body styles */
+.sm-body-wrapper {
+  margin: 0;
+  font-family: 'Inter', sans-serif; /* Using Inter as per instructions */
+  background-color: #f0f2f5;
+  display: flex;
+  flex-direction: column; /* Changed to column to stack header, card, and footer */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensures the card is vertically centered on the screen */
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevent horizontal scrollbar */
+  width: 100%; /* Ensure the wrapper takes full width */
+}
+
+/* Header Section Styles */
+.sm-header-section {
+  text-align: center;
+  margin-bottom: 40px; /* Space below the header before the card */
+  padding: 0 20px; /* Add some horizontal padding */
+  max-width: 800px; /* Limit width for better readability */
+}
+
+.sm-success-tag {
+  display: inline-flex;
+  align-items: center;
+  background-color: #e6f7ed; /* Light green background */
+  color: #34c759; /* Green text color */
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9em;
+  margin-bottom: 15px;
+}
+
+.sm-success-tag .fas {
+  margin-right: 8px;
+}
+
+.sm-main-title {
+  font-size: 2.8em;
+  font-weight: 800;
+  color: #333333;
+  margin: 15px 0 10px 0;
+  line-height: 1.2;
+}
+
+.sm-highlight-blue {
+  color: #1a73e8; /* Blue color for "Successful" */
+}
+
+.sm-highlight-orange {
+  color: #f7931e; /* Orange color for "Startups" */
+}
+
+.sm-description-text {
+  font-size: 1.1em;
+  color: #555555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+
+/* Main container for the entire card to center it */
+.sm-card-container {
+  width: 100%;
+  max-width: 1000px; /* Controls the visible width of one card */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Needed for potential future navigation arrows */
+  margin-bottom: 40px; /* Space below the card before the footer */
+}
+
+/* Wrapper for the slider to hide overflowing cards */
+.sm-slider-wrapper {
+  width: 100%;
+  overflow: hidden; /* This hides cards that are not currently visible */
+  border-radius: 16px; /* Match card border-radius */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Apply shadow to the wrapper */
+}
+
+/* Container for all startup cards, which will slide horizontally */
+.sm-slider-track {
+  display: flex;
+  /* Transition property is now handled dynamically in JSX */
+}
+
+/* Styling for each individual startup card within the slider */
+.sm-startup-card {
+  background-color: #ffffff;
+  border-radius: 16px; /* Rounded corners */
+  flex-shrink: 0; /* Prevent cards from shrinking */
+  width: 100%; /* Each card takes full width of the slider-wrapper */
+  display: flex;
+  flex-direction: row; /* Desktop layout: side-by-side */
+  padding: 20px 30px;
+  gap: 30px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+
+/* Styling for the left section (startup details) */
+.sm-details-section {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 25px;
+  padding-right: 20px;
+  border-right: 1px solid #e0e0e0;
+  position: relative;
+}
+
+/* Wrapper for the profile image and status dot */
+.sm-profile-image-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Profile image styling */
+.sm-profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Green status dot on the profile image */
+.sm-status-dot {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 18px;
+  height: 18px;
+  background-color: #34c759;
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+}
+
+/* Text details section (name, founder, description) */
+.sm-text-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.sm-startup-name {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #333333;
+  margin: 0 0 8px 0;
+}
+
+.sm-founder-info {
+  font-size: 1.1em;
+  color: #666666;
+  margin: 0 0 10px 0;
+}
+
+.sm-startup-description {
+  font-size: 1em;
+  color: #555555;
+  line-height: 1.5;
+  margin: 0 0 15px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 300px; /* Adjusted max-width for desktop to fit the full text within smaller card */
+}
+
+/* Status and established info section */
+.sm-status-est-info {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  font-size: 0.9em;
+  color: #777777;
+}
+
+.sm-active-status {
+  display: flex;
+  align-items: center;
+  color: #34c759;
+  font-weight: 600;
+}
+
+.sm-active-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #34c759;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.sm-established-year {
+  display: flex;
+  align-items: center;
+  color: #555555;
+  background-color: #eef1f6;
+  border-radius: 20px;
+  padding: 8px 15px;
+  font-weight: 600;
+  font-size: 0.9em;
+  position: absolute;
+  top: 0;
+  right: 20px;
+  transform: translateY(0%);
+}
+
+/* Style for the calendar icon within the tag */
+.sm-icon-calendar-alt::before {
+  content: '\f073'; /* Font Awesome calendar icon unicode */
+  font-family: 'Font Awesome 5 Free'; /* Ensure Font Awesome is linked in your project */
+  font-weight: 400; /* Changed to 400 for a regular/outline style */
+  margin-right: 8px;
+  font-size: 1.2em;
+  color: #777777;
+}
+
+
+/* Styling for the right section (success story) */
+.sm-success-story-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 30px;
+  background-color: #e6eaf2;
+  border-radius: 12px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.sm-story-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.sm-icon-quotes {
+  font-size: 2.5em;
+  color: #a0a0a0;
+  line-height: 1;
+}
+
+.sm-story-title {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #34c759;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sm-story-quote {
+  font-size: 1.15em;
+  font-style: italic;
+  color: #444444;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.sm-founder-signature {
+  text-align: right;
+}
+
+.sm-founder-name {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #1a73e8;
+  margin: 0 0 5px 0;
+}
+
+.sm-founder-title {
+  font-size: 0.9em;
+  color: #777777;
+  margin: 0;
+}
+
+/* Footer Section Styles */
+.sm-footer-section {
+  text-align: center;
+  margin-top: 40px; /* Space above the footer */
+  padding: 0 20px;
+  max-width: 800px;
+}
+
+.sm-footer-text {
+  font-size: 1em;
+  color: #777777;
+  line-height: 1.5;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .sm-header-section {
+    margin-bottom: 30px;
+  }
+  .sm-main-title {
+    font-size: 2.2em;
+  }
+  .sm-description-text {
+    font-size: 1em;
+  }
+
+  .sm-card-container {
+    margin-bottom: 30px;
+  }
+
+  .sm-startup-card {
+    flex-direction: column; /* Stack vertically on smaller screens */
+    padding: 25px;
+    gap: 25px;
+  }
+
+  .sm-details-section {
+    border-right: none; /* Remove vertical separator */
+    border-bottom: 1px solid #e0e0e0; /* Add horizontal separator */
+    padding-right: 0;
+    padding-bottom: 25px;
+    align-items: center; /* Center content */
+    text-align: center; /* Center text */
+  }
+
+  .sm-profile-image-wrapper {
+    margin-bottom: 15px;
+  }
+
+  .sm-text-details {
+    align-items: center; /* Center text block within its flex container */
+  }
+
+  .sm-startup-description {
+    max-width: 100%; /* Allow full width on smaller screens */
+    white-space: normal; /* Allow text to wrap on smaller screens */
+    text-overflow: clip; /* Remove ellipsis when wrapping */
+  }
+
+  .sm-status-est-info {
+    flex-direction: column; /* Stack status and est. year */
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .sm-established-year {
+    position: static; /* Revert to static position on smaller screens */
+    transform: none; /* Remove transform */
+    margin-top: 15px; /* Add some space from elements above */
+    margin-left: auto; /* Center if flex container allows */
+    margin-right: auto; /* Center if flex container allows */
+    top: auto;
+    right: auto;
+  }
+
+  .sm-success-story-section {
+    padding: 25px; /* Adjust padding for smaller screens */
+    padding-top: 0;
+  }
+
+  .sm-founder-signature {
+    text-align: center; /* Center founder signature */
+  }
+}
+
+@media (max-width: 768px) {
+  .sm-header-section {
+    margin-bottom: 25px;
+  }
+  .sm-main-title {
+    font-size: 1.8em;
+  }
+  .sm-description-text {
+    font-size: 0.95em;
+  }
+
+  .sm-card-container {
+    margin-bottom: 25px;
+  }
+
+  .sm-startup-card {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .sm-profile-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .sm-status-dot {
+    width: 15px;
+    height: 15px;
+    bottom: 3px;
+    right: 3px;
+  }
+
+  .sm-startup-name {
+    font-size: 1.6em;
+  }
+
+  .sm-founder-info {
+    font-size: 1em;
+  }
+
+  .sm-startup-description {
+    font-size: 0.95em;
+    margin-bottom: 10px;
+  }
+
+  .sm-story-quote {
+    font-size: 1.05em;
+    margin-bottom: 10px;
+  }
+
+  .sm-footer-section {
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sm-header-section {
+    margin-bottom: 20px;
+  }
+  .sm-main-title {
+    font-size: 1.5em;
+  }
+  .sm-description-text {
+    font-size: 0.9em;
+  }
+
+  .sm-card-container {
+    margin-bottom: 20px;
+  }
+
+  .sm-startup-card {
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .sm-profile-image {
+    width: 70px;
+    height: 70px;
+  }
+
+  .sm-status-dot {
+    width: 12px;
+    height: 12px;
+    bottom: 2px;
+    right: 2px;
+  }
+
+  .sm-startup-name {
+    font-size: 1.4em;
+  }
+
+  .sm-founder-info {
+    font-size: 0.9em;
+  }
+
+  .sm-startup-description {
+    font-size: 0.9em;
+  }
+
+  .sm-story-quote {
+    font-size: 1em;
+  }
+
+  .sm-established-year {
+    padding: 6px 12px;
+    font-size: 0.8em;
+  }
+
+  .sm-footer-section {
+    margin-top: 20px;
+  }
+}

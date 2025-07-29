@@ -1,0 +1,838 @@
+/* General Styling */
+:root {
+  --primary-color: #007bff; /* A consistent blue for highlights */
+  --text-dark: #333;
+  --text-medium: #555;
+  --text-light: #777;
+  --bg-light: #f8f9fa;
+  --bg-white: #ffffff;
+  --shadow-light: rgba(0, 0, 0, 0.08);
+  --shadow-medium: rgba(0, 0, 0, 0.15);
+  --border-color: #e0e0e0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif; /* Poppins is a good modern choice, similar to video */
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: var(--bg-light);
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Header/Navbar Styling (Placeholder - customize as needed) */
+.site-header {
+  background-color: var(--bg-white);
+  box-shadow: 0 2px 10px var(--shadow-light);
+  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px; /* Aligns with main content max-width */
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.4em;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 30px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--text-medium);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: var(--primary-color);
+}
+
+.apply-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+.apply-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-2px);
+}
+
+
+/* --- Hero Section Container --- */
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 80vh; /* Make it tall enough to be prominent */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  overflow-x: hidden; /* Hide anything that overflows, especially background */
+  /* IMPORTANT: You MUST correct this image path for it to work in your browser */
+  background-image: url('/src/images/psnaheroimg.jpeg'); /* Corrected path for React import if used with relative path, or absolute path from public */
+  background-size: cover; /* Cover the entire section */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat;
+  background-attachment: scroll; /* Ensures image scrolls with content */
+}
+
+/* --- Overlay for Readability --- */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* --- KEY CHANGE HERE: Adjusted gradient to blue tones as seen in the image --- */
+  /* Using darker blue from the image at the bottom, slightly lighter at the top */
+ background: linear-gradient(180deg, rgba(20, 60, 120, 0.75) 0%, rgba(10, 30, 80, 0.9) 100%);
+  /* You can experiment with these values: */
+  /* rgba(29, 56, 100, 0.7) is a slightly desaturated dark blue, with 70% opacity */
+  /* rgba(13, 27, 49, 0.85) is a very dark, deep blue, with 85% opacity */
+  z-index: 1; /* Place overlay above background image but below content */
+}
+
+/* --- Content Wrapper --- */
+.hero-content-wrapper {
+  position: relative;
+  z-index: 2; /* Place content above the overlay */
+  max-width: 1000px; /* Max width for content */
+  padding: 40px 20px; /* Padding for content inside the wrapper */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Hero Tag (Section 8 Organization) --- */
+.hero-tag {
+  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  backdrop-filter: blur(5px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(5px); /* For Safari */
+}
+
+/* --- Hero Title --- */
+.hero-title {
+  font-size: 3rem; /* Very large title */
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 25px;
+  color: white; /* Ensure title is white */
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Stronger text shadow */
+}
+
+.hero-title .highlight-text {
+  color: var(--highlight-orange); /* Orange highlight for "Entrepreneurs" */
+}
+
+/* --- Hero Description --- */
+.hero-description {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  max-width: 800px; /* Limit width for readability */
+  opacity: 0.9;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Main Content Wrapper for Centering */
+.main-content-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px; /* Increased top/bottom padding */
+}
+
+.main-content {
+  display: flex;
+  max-width: 1200px; /* A common content width */
+  width: 100%;
+  gap: 60px; /* Increased space between left and right panels */
+  align-items: flex-start; /* Align top, as seen in video */
+}
+
+/* Left Panel - Image Grid */
+.left-panel {
+  flex: 1.2; /* Slightly larger flex for left panel */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  gap: 20px; /* Space between images */
+  width: 100%; /* Take full width of its container */
+}
+
+.image-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px; /* More rounded corners */
+  box-shadow: 0 8px 16px var(--shadow-light); /* More prominent shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.image-item::before { /* For subtle overlay on hover */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.3s ease;
+  z-index: 1;
+}
+
+.image-item:hover {
+  transform: translateY(-5px); /* Lift effect */
+  box-shadow: 0 12px 24px var(--shadow-medium); /* Deeper shadow */
+}
+
+.image-item:hover::before {
+  background-color: rgba(0, 0, 0, 0.1); /* Slight darken on hover */
+}
+
+.image-item img {
+  display: block; /* Remove extra space below img */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures images cover the area without distortion */
+  transition: transform 0.3s ease; /* For subtle zoom on hover if desired */
+}
+
+/* Optional: Subtle zoom on image hover within item */
+.image-item:hover img {
+  transform: scale(1.03);
+}
+
+/* Right Panel - Content */
+.right-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically relative to left panel */
+}
+
+.world-class-facilities {
+  margin-bottom: 50px; /* More space below the intro section */
+}
+
+.world-class-facilities .subtitle {
+  font-size: 1em;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.world-class-facilities h1 {
+  font-size: 3.2em; /* Larger, bolder heading */
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.15;
+  margin-bottom: 25px;
+}
+
+.world-class-facilities .description {
+  font-size: 1.15em;
+  color: var(--text-medium);
+  line-height: 1.7;
+}
+
+.facility-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Space between facility items */
+}
+
+.facility-item {
+  display: flex;
+  align-items: flex-start; /* Align icon and text to the top */
+  gap: 20px;
+  background-color: var(--bg-white);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px var(--shadow-light);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.facility-item:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 10px 25px var(--shadow-medium); /* Deeper shadow on hover */
+}
+
+.facility-item .icon-wrapper {
+  background-color: #e0f7fa; /* Light blue background for icon (like in video) */
+  color: var(--primary-color); /* Icon color */
+  padding: 15px; /* Larger padding for icon circle */
+  border-radius: 50%; /* Perfect circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0; /* Prevent icon container from shrinking */
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.1); /* Subtle shadow for icon */
+}
+
+.facility-item .icon-wrapper svg {
+  width: 28px; /* Larger icons */
+  height: 28px;
+  stroke-width: 2; /* Adjust stroke thickness if needed */
+}
+
+.facility-item h3 {
+  font-size: 1.6em; /* Larger heading for items */
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+}
+
+.facility-item p {
+  font-size: 1em;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+/* Call to Action Section (CTA) */
+.cta-section {
+  padding-top: 4rem; /* py-16 */
+  padding-bottom: 4rem; /* py-16 */
+  padding-left: 1rem; /* px-4 */
+  padding-right: 1rem; /* px-4 */
+  background-color: #f3f4f6; /* bg-gray-100 */
+  font-family: 'Inter', sans-serif; /* font-inter */
+  /* Initial state for fade-in */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Smooth transition */
+}
+
+/* When the section is visible in viewport */
+.cta-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s; /* Small delay for CTA section to appear after cards */
+}
+
+.cta-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 64rem; /* max-w-4xl */
+  background-color: #ffffff; /* bg-white */
+  border-radius: 0.75rem; /* rounded-xl */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+  padding: 2rem; /* p-8 */
+  text-align: center; /* text-center */
+  position: relative; /* relative */
+  overflow: hidden; /* overflow-hidden */
+}
+
+@media (min-width: 768px) { /* md:p-12 */
+  .cta-container {
+    padding: 3rem;
+  }
+}
+
+.cta-background-gradient {
+  position: absolute; /* absolute */
+  top: 0; /* inset-0 */
+  right: 0; /* inset-0 */
+  bottom: 0; /* inset-0 */
+  left: 0; /* inset-0 */
+  background-image: linear-gradient(to bottom right, rgba(239, 246, 255, 0.5), rgba(237, 242, 255, 0.5)); /* bg-gradient-to-br from-blue-50/50 to-indigo-50/50 */
+  border-radius: 0.75rem; /* rounded-xl */
+  z-index: 0; /* z-0 */
+}
+
+.cta-content-wrapper {
+  position: relative; /* relative */
+  z-index: 10; /* z-10 */
+}
+
+.cta-title {
+  font-size: 1.875rem; /* text-3xl */
+  line-height: 2.25rem; /* leading-tight */
+  font-weight: 800; /* font-extrabold */
+  color: #1f2937; /* text-gray-800 */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+@media (min-width: 768px) { /* md:text-4xl */
+  .cta-title {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
+.cta-description {
+  font-size: 1rem; /* text-base */
+  line-height: 1.5rem; /* leading-normal */
+  color: #4b5563; /* text-gray-600 */
+  margin-bottom: 2rem; /* mb-8 */
+  max-width: 42rem; /* max-w-2xl */
+  margin-left: auto; /* mx-auto */
+  margin-right: auto; /* mx-auto */
+}
+
+@media (min-width: 768px) { /* md:text-lg */
+  .cta-description {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+
+.cta-buttons {
+  display: flex; /* flex */
+  flex-direction: column; /* flex-col */
+  justify-content: center; /* justify-center */
+  row-gap: 1rem; /* space-y-4 */
+}
+
+@media (min-width: 640px) { /* sm:flex-row sm:space-y-0 sm:space-x-4 */
+  .cta-buttons {
+    flex-direction: row;
+    row-gap: 0;
+    column-gap: 1rem;
+  }
+}
+
+.cta-button {
+  display: inline-flex; /* inline-flex */
+  align-items: center; /* items-center */
+  justify-content: center; /* justify-center */
+  padding: 0.75rem 2rem; /* px-8 py-3 */
+  border-width: 1px; /* border */
+  border-style: solid;
+  font-size: 1rem; /* text-base */
+  font-weight: 500; /* font-medium */
+  border-radius: 9999px; /* rounded-full */
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+  transition-property: all; /* transition */
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); /* ease-in-out */
+  transition-duration: 300ms; /* duration-300 */
+  transform: translateY(0); /* initial transform for hover effect */
+}
+
+.cta-button:hover { /* hover:-translate-y-0.5 */
+  transform: translateY(-0.125rem);
+}
+
+.cta-button:focus { /* focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 */
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #3b82f6; /* ring-offset-2 and ring-blue-500 */
+}
+
+.cta-button.primary {
+  border-color: transparent; /* border-transparent */
+  color: #ffffff; /* text-white */
+  background-color: #2563eb; /* bg-blue-600 */
+}
+
+.cta-button.primary:hover { /* hover:bg-blue-700 */
+  background-color: #1d4ed8;
+}
+
+.cta-button.secondary {
+  border-color: #2563eb; /* border-blue-600 */
+  color: #2563eb; /* text-blue-600 */
+  background-color: #ffffff; /* bg-white */
+}
+
+.cta-button.secondary:hover { /* hover:bg-blue-50 */
+  background-color: #eff6ff;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .main-content {
+    flex-direction: column;
+    gap: 40px;
+    padding: 0 20px; /* Reduce horizontal padding */
+  }
+
+  .left-panel,
+  .right-panel {
+    flex: none;
+    width: 100%;
+  }
+
+  .image-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adapt grid for smaller screens */
+    justify-content: center; /* Center items if they don't fill the row */
+  }
+
+  .world-class-facilities h1 {
+    font-size: 2.5em;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    padding: 10px 20px;
+  }
+
+  .header-content {
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: center; /* Center logo and nav if wrapped */
+    gap: 15px;
+  }
+
+  .main-nav ul {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .main-content-wrapper {
+    padding: 40px 15px;
+  }
+
+  .world-class-facilities h1 {
+    font-size: 2em;
+    margin-bottom: 15px;
+  }
+
+  .world-class-facilities .description {
+    font-size: 1em;
+  }
+
+  .facility-item {
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .facility-item h3 {
+    font-size: 1.4em;
+  }
+
+  .facility-item .icon-wrapper {
+    padding: 12px;
+  }
+
+  .facility-item .icon-wrapper svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.2em;
+  }
+
+  .apply-button {
+    padding: 8px 15px;
+  }
+
+  .image-grid {
+    grid-template-columns: 1fr; /* Single column on very small screens */
+  }
+
+  .world-class-facilities h1 {
+    font-size: 1.8em;
+  }
+}
+
+/* Facilities Page Pure CSS Styles */
+
+/* Container and Layout */
+.facilities-main {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Section Header Styles */
+.facilities-header {
+  padding: 80px 0 60px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.section-description {
+  font-size: 1.25rem;
+  color: #4a5568;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Image Grid Section */
+.image-grid-section {
+  padding: 60px 0;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 80px;
+}
+
+.image-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.facility-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-card:hover .facility-image {
+  transform: scale(1.1);
+}
+
+/* Facility Cards Section */
+.facility-cards-section {
+  padding: 60px 0 80px;
+  background-color: #f7fafc;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+}
+
+.facility-card {
+  background: white;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.facility-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a202c;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.card-description {
+  font-size: 1rem;
+  color: #4a5568;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Fade-in Animation Styles */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+
+/* Tablet Styles */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+  }
+  
+  .section-description {
+    font-size: 1.125rem;
+  }
+  
+  .image-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .facility-image {
+    height: 220px;
+  }
+  
+  .facility-card {
+    padding: 24px;
+  }
+  
+  .cards-grid {
+    gap: 24px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .facilities-header {
+    padding: 60px 0 40px;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+  
+  .section-description {
+    font-size: 1rem;
+  }
+  
+  .image-grid-section {
+    padding: 40px 0;
+  }
+  
+  .image-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 60px;
+  }
+  
+  .facility-image {
+    height: 200px;
+  }
+  
+  .facility-cards-section {
+    padding: 40px 0 60px;
+  }
+  
+  .facility-card {
+    padding: 20px;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+  }
+  
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Performance Optimizations */
+.image-card,
+.facility-card {
+  will-change: transform;
+}
+
+.facility-image {
+  will-change: transform;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in,
+  .image-card,
+  .facility-card,
+  .facility-image {
+    transition: none;
+  }
+  
+  .image-card:hover,
+  .facility-card:hover {
+    transform: none;
+  }
+}
+
+/* Focus States for Accessibility */
+.image-card:focus-within,
+.facility-card:focus {
+  outline: 2px solid #4299e1;
+  outline-offset: 2px;
+}
+
+/* Loading State */
+.facility-image {
+  background-color: #e2e8f0;
+}
+
+.facility-image[src=""] {
+  background-image: linear-gradient(
+    90deg,
+    #e2e8f0 0%,
+    #f7fafc 50%,
+    #e2e8f0 100%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

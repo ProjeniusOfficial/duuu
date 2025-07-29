@@ -1,0 +1,251 @@
+/* --- Variables (consistent with previous components) --- */
+:root {
+  --primary-blue: #0056b3;
+  --light-blue: #007bff;
+  --text-dark: #333;
+  --text-light: #f8f9fa;
+  --card-bg-gradient-start: #f0f4f8;
+  --card-bg-gradient-end: #e6edf2;
+  --play-button-bg: #007bff;
+  --play-button-hover-bg: #0056b3;
+}
+
+/* --- Video Section Container --- */
+.video-section {
+  padding: 80px 20px;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  overflow-x: hidden;
+}
+
+/* --- Video Card Styling --- */
+.video-card {
+  background: linear-gradient(
+    135deg,
+    var(--card-bg-gradient-start),
+    var(--card-bg-gradient-end)
+  );
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 40px 30px;
+  width: 1250px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  min-height: 350px;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+}
+
+/* --- Video Title --- */
+.video-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 5px;
+  margin-top: -5px;
+}
+
+/* --- Video Description --- */
+.video-description {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Responsive Video Player Styles --- */
+.video-player-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  background-color: black;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* --- YouTube Thumbnail Preview --- */
+.video-thumbnail-wrapper {
+  position: relative;
+  width: 1000px;
+  height: 480px;
+  aspect-ratio: 16 / 9;
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  margin-bottom: 30px;
+}
+
+.video-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+
+.thumbnail-play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  padding: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.thumbnail-play-button svg {
+  width: 40px;
+  height: 40px;
+}
+
+.video-thumbnail-wrapper:hover .thumbnail-play-button {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* --- Modal Overlay --- */
+.video-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* --- Modal Content --- */
+.video-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  background: transparent;
+  padding: 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* --- Close Button --- */
+.close-video-button {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  background-color: #fff;
+  color: #000;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 10000;
+  transition: background-color 0.3s;
+}
+
+.close-video-button:hover {
+  background-color: #eee;
+}
+
+/* --- Fade animation for modal --- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .video-section {
+    padding: 60px 15px;
+    min-height: 40vh;
+  }
+
+  .video-card {
+    padding: 30px 20px;
+    width: 95%;
+    min-height: 300px;
+  }
+
+  .video-title {
+    font-size: 1.8rem;
+  }
+
+  .video-description {
+    font-size: 1rem;
+  }
+
+  .video-thumbnail-wrapper {
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 25px;
+  }
+
+  .thumbnail-play-button {
+    padding: 14px;
+  }
+
+  .thumbnail-play-button svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-section {
+    padding: 40px 10px;
+    min-height: 35vh;
+  }
+
+  .video-card {
+    padding: 25px 15px;
+    min-height: 250px;
+  }
+
+  .video-title {
+    font-size: 1.5rem;
+  }
+
+  .video-description {
+    font-size: 0.9rem;
+  }
+
+  .thumbnail-play-button {
+    padding: 12px;
+  }
+
+  .thumbnail-play-button svg {
+    width: 28px;
+    height: 28px;
+  }
+}
