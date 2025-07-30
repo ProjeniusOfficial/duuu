@@ -1,0 +1,254 @@
+/* Universal Box Sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* General Body and Container Styles */
+html, body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    overflow-x: hidden; /* Prevents horizontal scrolling/white space */
+    width: 100%; /* Ensures the root elements take full available width */
+}
+
+.container {
+    max-width: 900px; /* Slightly narrower container for the form */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Hero Section for Contact Page */
+.contact-hero-section {
+    height: 400px; /* Similar height to Facilities hero placeholder */
+    background: linear-gradient(
+    to right,
+    #073c92e6 0%,
+    #073c92b3 50%,
+    #09419b80 100%
+  );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #00796b; /* Darker teal color */
+    text-align: center;
+    font-size: 1.5em;
+
+    /* Initial state for fade-in */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Smooth transition */
+}
+
+.contact-heading {
+  background-color: #ff8c00;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* When the hero section is visible in viewport */
+.contact-hero-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact-hero-section h1 {
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    color: #004d40; /* Even darker teal */
+}
+
+.contact-hero-section p {
+    font-size: 1.2em;
+    color: #ffffff; /* Dark gray */
+}
+
+/* Contact Form Section */
+.contact-form-section {
+    padding: 60px 0;
+    background-color: #fff;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+
+    /* Initial state for fade-in */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Smooth transition */
+    transition-delay: 0.2s; /* Delay after hero section */
+}
+
+/* When the contact form section is visible in viewport */
+.contact-form-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact-form-title {
+    font-size: 2.2em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.contact-form-description {
+    font-size: 1.1em;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    line-height: 1.6;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px; /* Limit form width */
+    margin: 0 auto; /* Center the form */
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background-color: #fcfcfc;
+    text-align: left; /* Align form elements left */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+    font-size: 0.95em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%; /* Ensure inputs take full width */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: #2196f3;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.2);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 120px;
+}
+
+.send-message-button {
+    background-color: #2196f3; /* Blue button */
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-self: center; /* Center the button within the flex container */
+    width: auto; /* Allow button to size based on content */
+    min-width: 180px; /* Ensure a minimum width */
+}
+
+.send-message-button:hover {
+    background-color: #1976d2; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .contact-hero-section {
+        height: 250px;
+        font-size: 1.2em;
+    }
+    .contact-hero-section h1 {
+        font-size: 2.2em;
+    }
+    .contact-hero-section p {
+        font-size: 1em;
+    }
+
+    .contact-form-section {
+        padding: 40px 0;
+    }
+
+    .contact-form-title {
+        font-size: 1.8em;
+    }
+
+    .contact-form-description {
+        font-size: 1em;
+        margin-bottom: 25px;
+    }
+
+    .contact-form {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .send-message-button {
+        padding: 12px 20px;
+        font-size: 1em;
+        min-width: unset; /* Remove min-width on mobile */
+        width: 100%; /* Make button full width on mobile */
+        max-width: 250px; /* Limit max width for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-hero-section {
+        height: 200px;
+        font-size: 1em;
+    }
+    .contact-hero-section h1 {
+        font-size: 1.8em;
+    }
+    .contact-hero-section p {
+        font-size: 0.9em;
+    }
+
+    .container {
+        padding: 0 15px; /* Adjusted padding for very small screens */
+    }
+
+    .contact-form-title {
+        font-size: 1.6em;
+    }
+
+    .contact-form-description {
+        font-size: 0.9em;
+        margin-bottom: 20px;
+    }
+
+    .contact-form {
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .form-group label {
+        font-size: 0.9em;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}

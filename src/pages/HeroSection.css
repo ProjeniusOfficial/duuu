@@ -1,0 +1,328 @@
+/* HeroSection.css */
+
+/* --- Variables --- */
+:root {
+  --primary-blue: #0056b3;
+  --light-blue: #007bff;
+  --text-dark: #333;
+  --text-light: #f8f9fa;
+  --button-primary-bg: #ff8c00;
+  --button-primary-hover-bg: #e67e00;
+  --button-secondary-bg: rgba(255, 255, 255, 0.15);
+  --button-secondary-hover-bg: rgba(255, 255, 255, 0.3);
+  --highlight-orange: #ff8c00;
+}
+
+/* --- Hero Section Container --- */
+.hero-section1 {
+  position: relative;
+  width: 100%;
+  min-height: 110vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* --- Overlay --- */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    #073c92e6 0%,
+    #073c92b3 50%,
+    #09419b80 100%
+  );
+  z-index: 1;
+}
+
+/* --- Content Wrapper --- */
+.hero-content-wrapper {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Hero Tag --- */
+.hero-tag {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+/* --- Hero Title --- */
+.hero-title {
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 25px;
+  color: white;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.hero-title .highlight-text {
+  color: var(--highlight-orange);
+}
+
+/* --- Hero Description --- */
+.hero-description {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  max-width: 800px;
+  opacity: 0.9;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Hero Actions --- */
+.hero-actions {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.btn {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--button-primary-bg);
+  color: white;
+  background: linear-gradient(135deg, #ff8c00, #ffb347); 
+  box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+}
+
+.btn-primary:hover {
+  background-color: var(--button-primary-hover-bg);
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, #e67e00, #ffaa33);
+  box-shadow: 0 8px 20px rgba(255, 140, 0, 0.6);
+}
+
+.btn-secondary {
+  background-color: var(--button-secondary-bg);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.btn-secondary:hover {
+  background-color: var(--button-secondary-hover-bg);
+  transform: translateY(-3px);
+  border-color: white;
+}
+
+.btn-secondary .play-icon {
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+/* --- Statistics --- */
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 20px 0;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 150px;
+}
+
+.stat-number {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --- Background Slider --- */
+/* --- Background Fade Slider --- */
+.hero-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero-slider .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: fade 36s infinite;
+}
+
+.hero-slider .bg1 { background-image: url('../images/bg1.jpeg'); animation-delay: 0s; }
+.hero-slider .bg2 { background-image: url('../images/bg2.jpeg'); animation-delay: 6s; }
+.hero-slider .bg3 { background-image: url('../images/bg3.jpeg'); animation-delay: 12s; }
+.hero-slider .bg4 { background-image: url('../images/bg4.jpeg'); animation-delay: 18s; }
+.hero-slider .bg5 { background-image: url('../images/bg5.jpeg'); animation-delay: 24s; }
+.hero-slider .bg6 { background-image: url('../images/bg6.jpeg'); animation-delay: 30s; }
+/* .hero-slider .bg6 { background-image: url('../images/bg6.jpeg'); animation-delay: 30s; } */
+
+@keyframes fade {
+  0% { opacity: 0; }
+  5% { opacity: 1; }
+  20% { opacity: 1; }
+  25% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* --- Media Queries --- */
+
+@media (max-width: 1024px) {
+  .hero-section {
+    min-height: 80vh;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+  }
+
+  .hero-description {
+    font-size: 1.2rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .btn {
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .stat-number {
+    font-size: 2.2rem;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 65vh;
+    padding: 30px 15px;
+  }
+
+  .hero-content-wrapper {
+    padding: 30px 15px;
+  }
+
+  .hero-tag {
+    font-size: 0.8rem;
+    padding: 6px 15px;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .stat-item {
+    width: 100%;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    min-height: 55vh;
+    padding: 20px 10px;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-description {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .stat-number {
+    font-size: 1.8rem;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+  }
+}
+

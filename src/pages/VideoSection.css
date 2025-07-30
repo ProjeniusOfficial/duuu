@@ -1,0 +1,306 @@
+/* --- Variables (consistent with previous components) --- */
+:root {
+  --vs-primary-blue: #0056b3;
+  --vs-light-blue: #007bff;
+  --vs-text-dark: #333;
+  --vs-text-light: #f8f9fa;
+  --vs-card-bg-gradient-start: #f0f4f8;
+  --vs-card-bg-gradient-end: #e6edf2;
+  --vs-play-button-bg: #007bff;
+  --vs-play-button-hover-bg: #0056b3;
+  --vs-orange-hover-border: #f7931e; /* Changed to border color variable */
+}
+
+/* --- Video Section Container --- */
+.vs-video-section {
+  padding: 80px 20px;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  overflow-x: hidden;
+  margin-bottom: -10px; /* Adjust as needed for layout */
+  width: 100%; /* Ensure it takes full width */
+  box-sizing: border-box;
+}
+
+/* --- Video Card Styling --- */
+.vs-video-card {
+  background: linear-gradient(
+    135deg,
+    var(--vs-card-bg-gradient-start),
+    var(--vs-card-bg-gradient-end)
+  );
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 40px 30px;
+  width: 100%; /* Make it fluid */
+  max-width: 1250px; /* Set a max-width for larger screens */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out; /* Transition for border-color */
+  min-height: 350px;
+  box-sizing: border-box; /* Include padding in width calculation */
+  border: 2px solid transparent; /* Add a transparent border for smooth transition */
+}
+
+/* Hover effect for the video card border */
+.vs-video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15); /* Slightly more pronounced shadow on hover */
+  border-color: var(--vs-orange-hover-border); /* Orange border on hover */
+  /* Ensure background does NOT change on hover */
+  background: linear-gradient(
+    135deg,
+    var(--vs-card-bg-gradient-start),
+    var(--vs-card-bg-gradient-end)
+  ); /* Explicitly keep original background */
+}
+
+/* Text color remains consistent on hover */
+.vs-video-card:hover .vs-video-title,
+.vs-video-card:hover .vs-video-description {
+  color: var(--vs-text-dark); /* Keep text dark on hover */
+}
+
+
+/* --- Video Title --- */
+.vs-video-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--vs-text-dark);
+  margin-bottom: 5px;
+  margin-top: -5px;
+}
+
+/* --- Video Description --- */
+.vs-video-description {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Responsive Video Player Styles (for modal) --- */
+.vs-video-player-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (height / width * 100) */
+  background-color: black;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.vs-responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* --- YouTube Thumbnail Preview --- */
+.vs-video-thumbnail-wrapper {
+  position: relative;
+  width: 100%; /* Make it fluid */
+  max-width: 1000px; /* Set a max-width for the thumbnail */
+  aspect-ratio: 16 / 9; /* Maintain aspect ratio */
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  margin-bottom: 30px;
+}
+
+.vs-video-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+
+.vs-thumbnail-play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* Adjusted size for the play button circle */
+  width: 60px; /* Increased size of the circle */
+  height: 60px; /* Increased size of the circle */
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.vs-thumbnail-play-button svg {
+  /* Adjusted size for the SVG icon inside the circle */
+  width: 30px; /* Smaller SVG to fit within the larger circle */
+  height: 30px;
+  fill: white; /* Ensure the SVG icon color is white */
+}
+
+.vs-video-thumbnail-wrapper:hover .vs-thumbnail-play-button {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* --- Modal Overlay --- */
+.vs-video-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: vs-fadeIn 0.3s ease-in-out;
+}
+
+/* --- Modal Content --- */
+.vs-video-modal-content {
+  position: relative; /* Keep relative for close button positioning */
+  width: 90%;
+  max-width: 900px;
+  background: transparent; /* Keep background transparent */
+  padding: 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* --- Close Button --- */
+.vs-close-video-button {
+  position: absolute;
+  top: 10px; /* Positioned inside the modal content */
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  color: #000;
+  font-size: 1.5rem;
+  width: 35px; /* Slightly smaller button */
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Softer shadow */
+  z-index: 10000;
+  transition: background-color 0.3s;
+  display: flex; /* Use flex to center the 'x' */
+  justify-content: center;
+  align-items: center;
+}
+
+.vs-close-video-button:hover {
+  background-color: #fff; /* Solid white on hover */
+}
+
+/* --- Fade animation for modal --- */
+@keyframes vs-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1200px) {
+  .vs-video-card {
+    max-width: 90%; /* Adjust card width for slightly smaller desktops */
+  }
+}
+
+@media (max-width: 768px) {
+  .vs-video-section {
+    padding: 60px 15px;
+    min-height: 40vh;
+  }
+
+  .vs-video-card {
+    padding: 30px 20px;
+    width: 95%;
+    min-height: 300px;
+  }
+
+  .vs-video-title {
+    font-size: 1.8rem;
+  }
+
+  .vs-video-description {
+    font-size: 1rem;
+  }
+
+  .vs-video-thumbnail-wrapper {
+    max-width: 100%; /* Ensure it takes full width available */
+    margin-bottom: 25px;
+  }
+
+  .vs-thumbnail-play-button {
+    width: 50px; /* Adjust size for tablet */
+    height: 50px;
+  }
+
+  .vs-thumbnail-play-button svg {
+    width: 25px; /* Adjust SVG size for tablet */
+    height: 25px;
+  }
+
+  .vs-video-modal-content {
+    width: 95%; /* Make modal content wider on smaller screens */
+  }
+
+  .vs-close-video-button {
+    top: 5px; /* Adjust close button position for smaller screens */
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .vs-video-section {
+    padding: 40px 10px;
+    min-height: 35vh;
+  }
+
+  .vs-video-card {
+    padding: 25px 15px;
+    min-height: 250px;
+  }
+
+  .vs-video-title {
+    font-size: 1.5rem;
+  }
+
+  .vs-video-description {
+    font-size: 0.9rem;
+  }
+
+  .vs-thumbnail-play-button {
+    width: 40px; /* Adjust size for mobile */
+    height: 40px;
+  }
+
+  .vs-thumbnail-play-button svg {
+    width: 20px; /* Adjust SVG size for mobile */
+    height: 20px;
+  }
+
+  .vs-close-video-button {
+    top: 2px; /* Further adjust close button position for very small screens */
+    right: 2px;
+    width: 28px;
+    height: 28px;
+    font-size: 1rem;
+  }
+}

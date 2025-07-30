@@ -1,0 +1,190 @@
+/* Base Styling for the Section */
+.team-carousel-section {
+  background-color: #f9fbff;
+  padding: 4rem 1rem;
+  text-align: center;
+  overflow: hidden; /* Important: Hides content overflowing the section */
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 2rem;
+}
+
+/* Carousel Container: Defines the visible window for the carousel */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden; /* This is key to hide the content outside the view and the scrollbar */
+}
+
+/* Team Carousel Track: The main flex container that animates */
+.team-carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  width: fit-content; /* Allows track to be wider than its parent, enabling overflow */
+  animation: scrollCarousel 30s linear infinite; /* Adjusted speed for smoother loop */
+}
+
+/* Keyframe Animation for the continuous scroll */
+@keyframes scrollCarousel {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Individual Team Card Styling */
+.team-card {
+  background-color: white; /* Base background */
+  /* Optional: Add a subtle linear gradient for more depth */
+  background: linear-gradient(145deg, #ffffff, #f0f8ff); /* Very subtle light blue/white gradient */
+  flex-shrink: 0;
+  width: 320px;
+  height: auto;
+  padding: 2.5rem 1.5rem;
+  border-radius: 1.5rem;
+  
+  /* Initial Border: More visible than transparent */
+  border: 2px solid rgba(220, 220, 220, 0.6); /* Soft grey border */
+  
+  /* Enhanced Box Shadow: More prominent and layered */
+  box-shadow: 
+    0 8px 20px rgba(0, 0, 0, 0.08), /* Main shadow */
+    0 2px 6px rgba(0, 0, 0, 0.05);  /* Subtle top shadow */
+  
+  text-align: center;
+  transition: all 0.4s ease-in-out; /* Slightly longer transition for smoother feel */
+}
+
+.team-card:hover {
+  border: 2px solid #ffa500; /* Existing orange border on hover */
+  /* More impactful shadow on hover */
+  box-shadow: 
+    0 12px 30px rgba(255, 165, 0, 0.4), /* Larger, colored shadow */
+    0 4px 10px rgba(255, 165, 0, 0.2);   /* Secondary subtle shadow */
+  transform: translateY(-5px); /* Lift card slightly on hover */
+}
+
+.team-avatar {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 1.2rem;
+  background-color: #e6eefc; /* Light blue background for avatar fallback */
+  color: #0f172a;
+  font-weight: bold;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  /* Optional: Add a subtle shadow to the avatar as well */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.team-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-name {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #0f172a;
+  margin: 0.5rem 0;
+}
+
+.team-role {
+  color: #3b82f6;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.team-quote {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.team-icons span {
+  margin: 0 0.3rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* --- Responsive Adjustments with Media Queries --- */
+
+/* Tablets (landscape) and smaller desktops */
+@media (max-width: 1024px) {
+  .team-carousel-track {
+    gap: 1.2rem;
+  }
+  .team-card {
+    width: 280px;
+  }
+  .section-title {
+    font-size: 1.8rem;
+  }
+}
+
+/* Small Tablets (portrait) and large phones */
+@media (max-width: 768px) {
+  .team-carousel-section {
+    padding: 3rem 0.5rem;
+  }
+  .team-carousel-track {
+    gap: 1rem;
+  }
+  .team-card {
+    width: 250px;
+    padding: 2rem 1rem;
+  }
+  .section-title {
+    font-size: 1.6rem;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+  .team-carousel-track {
+    gap: 0.8rem;
+  }
+  .team-card {
+    width: 200px;
+    padding: 1.8rem 0.8rem;
+  }
+  .section-title {
+    font-size: 1.4rem;
+  }
+  .team-avatar {
+    width: 70px;
+    height: 70px;
+  }
+  .team-name {
+    font-size: 1.1rem;
+  }
+  .team-role {
+    font-size: 0.9rem;
+  }
+  .team-quote {
+    font-size: 0.85rem;
+  }
+}
+
+/* Extra small devices (e.g., iPhone SE) */
+@media (max-width: 375px) {
+  .team-card {
+    width: 180px;
+    padding: 1.5rem 0.6rem;
+  }
+}

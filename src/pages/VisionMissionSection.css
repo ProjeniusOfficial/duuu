@@ -1,0 +1,306 @@
+/* VisionMissionSection.css - Updated */
+
+/* --- Variables --- */
+:root {
+  --primary-blue: #0056b3;
+  --light-blue: #007bff;
+  --text-dark: #212529; /* Slightly darker for better contrast */
+  --text-light: #f8f9fa;
+  --card-bg: white;
+  --section-bg-light: #f8f9fa;
+  --tag-bg: #e0e7ff;
+  --tag-text: #004085; /* Deeper blue for tag text */
+  --icon-blue: #007bff;
+  --icon-orange: #ff8c00;
+  --icon-green: #28a745;
+  --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Base Section Styles --- */
+.vision-mission-section {
+  padding: 80px 20px;
+  background-color: var(--section-bg-light);
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.section-tag {
+  display: inline-block;
+  background-color: var(--tag-bg);
+  color: var(--tag-text);
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px; /* Increased letter-spacing for a refined look */
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3.5rem); /* Responsive font size */
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+
+
+.section-description {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: #555;
+  margin: 0 auto 60px; /* Centered with auto margins */
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+/* --- Cards Container --- */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px; /* Increased gap for more breathing room */
+}
+
+/* --- Individual Card Item (Enhanced) --- */
+.card-item1 {
+  position: relative; /* For pseudo-elements */
+  background-color: var(--card-bg);
+  border-radius: 16px; /* Slightly more rounded corners */
+  box-shadow: var(--shadow-light);
+  padding: 40px; /* Increased padding */
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden; /* Hide overflowing pseudo-element */
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card-item2 {
+  position: relative; /* For pseudo-elements */
+  background-color: var(--card-bg);
+  border-radius: 16px; /* Slightly more rounded corners */
+  box-shadow: var(--shadow-light);
+  padding: 40px; /* Increased padding */
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden; /* Hide overflowing pseudo-element */
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card-item3 {
+  position: relative; /* For pseudo-elements */
+  background-color: var(--card-bg);
+  border-radius: 16px; /* Slightly more rounded corners */
+  box-shadow: var(--shadow-light);
+  padding: 40px; /* Increased padding */
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden; /* Hide overflowing pseudo-element */
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card-item1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px; /* Color strip at the top */
+  background-color: transparent;
+  transition: background-color 0.4s ease-in-out;
+}
+
+.card-item2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px; /* Color strip at the top */
+  background-color: transparent;
+  transition: background-color 0.4s ease-in-out;
+}
+
+.card-item3::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px; /* Color strip at the top */
+  background-color: transparent;
+  transition: background-color 0.4s ease-in-out;
+}
+
+.card-item1:hover {
+  transform: translateY(-12px); /* More pronounced lift effect */
+  border: 1px solid #ff8000;
+}
+
+.card-item2:hover {
+  transform: translateY(-12px); /* More pronounced lift effect */
+  border: 1px solid #ff8000;
+}
+
+.card-item3:hover {
+  transform: translateY(-12px); /* More pronounced lift effect */
+  border: 1px solid #ff8000;
+}
+
+/* Add a subtle animation on hover to the cards */
+.card-item:hover .card-title {
+  color: var(--primary-blue); /* Highlight title on hover */
+  transition: color 0.3s ease;
+}
+
+.card-item.vision-card::before {
+  background-color: var(--icon-blue);
+}
+
+.card-item.mission-card::before {
+  background-color: var(--icon-orange);
+}
+
+.card-item.values-card::before {
+  background-color: var(--icon-green);
+}
+
+/* --- Card Icon (Enhanced with new effect) --- */
+.card-icon {
+  width: 80px; /* Larger icon size */
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+  margin-top: 0;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card-item:hover .card-icon {
+  transform: scale(1.1);
+}
+
+.card-icon svg {
+  width: 45px; /* Larger SVG */
+  height: 45px;
+}
+
+/* Specific icon background styles with subtle radial gradients */
+.vision-icon {
+  background: radial-gradient(circle, rgba(0, 123, 255, 0.2), rgba(0, 123, 255, 0.05));
+  color: var(--icon-blue);
+}
+
+.mission-icon {
+  background: radial-gradient(circle, rgba(255, 140, 0, 0.2), rgba(255, 140, 0, 0.05));
+  color: var(--icon-orange);
+}
+
+.values-icon {
+  background: radial-gradient(circle, rgba(40, 167, 69, 0.2), rgba(40, 167, 69, 0.05));
+  color: var(--icon-green);
+}
+
+.card-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.card-description {
+  font-size: 1rem;
+  color: #6c757d; /* Slightly lighter text for readability */
+  line-height: 1.7;
+  padding-top: 15px; /* Reduced padding-top */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+  .vision-mission-section {
+    padding: 70px 15px;
+  }
+
+  .cards-container {
+    gap: 30px;
+  }
+
+  .card-item {
+    min-width: 250px;
+    max-width: 320px;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .vision-mission-section {
+    padding: 60px 15px;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .section-description {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+
+  .cards-container {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .card-item {
+    width: 100%;
+    max-width: 450px;
+    padding: 25px;
+  }
+
+  .card-icon {
+    width: 65px;
+    height: 65px;
+  }
+  
+  .card-icon svg {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .vision-mission-section {
+    padding: 50px 10px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .card-item {
+    padding: 20px;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+  
+  .card-description {
+    font-size: 0.9rem;
+  }
+}
